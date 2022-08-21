@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-cache-example
+spec:
+  selector:
+    matchLabels:
+      app: redis-cache-example
+  template:
+    metadata:
+      labels:
+        app: redis-cache-example
+    spec:
+      containers:
+      - name: redis
+        image: redis:latest
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 6379
