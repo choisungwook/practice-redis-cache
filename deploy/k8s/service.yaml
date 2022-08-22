@@ -6,7 +6,7 @@ metadata:
     app: redis
 spec:
   selector:
-    app: redis
+    app: redis-cache-example
   ports:
     - name: redis
       protocol: TCP
