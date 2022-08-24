@@ -5,7 +5,7 @@ from pydantic import BaseSettings
 from typing import Optional
 
 
-class UniversityMetaData(BaseSettings):
+class UniversityMetaDataEncoded(BaseSettings):
     """redis에 값을 넣기 위한 스키마"""
     domains: str
     alpha_two_code: str
@@ -74,7 +74,7 @@ class CountryService:
     def __add_university_to_redis(self, countries: list):
         """redis에 university 추가"""
         for country in countries:
-            country_info = UniversityMetaData(
+            country_info = UniversityMetaDataEncoded(
                 domains=self.__list_to_string_for_redis_value(country["domains"]),
                 alpha_two_code=country["alpha_two_code"],
                 country=country["country"],
