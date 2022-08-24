@@ -67,7 +67,7 @@ class CountryService:
 
         response = requests.get(url, params=params)
         if not response.ok:
-            raise HTTPException(status_code=500, detail="rest api is failed")
+            raise HTTPException(status_code=500, detail="redis server is down. Please check the redis server")
 
         return response.json()
 
