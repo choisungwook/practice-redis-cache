@@ -46,7 +46,6 @@ class CountryService:
         universities = []
         for name in university_names:
             response = self.redis_conn.hmget(name, "domains", "alpha_two_code", "country", "web_pages", "name", "state_province")
-            print(response)
             university_metadata = UniversityMetaDataDecoded(
                 domains=self.__redis_value_to_list_if_contains(response[0]),
                 alpha_two_code=response[1],
